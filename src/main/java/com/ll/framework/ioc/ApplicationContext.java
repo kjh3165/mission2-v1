@@ -13,6 +13,10 @@ public class ApplicationContext {
     }
 
     public <T> T genBean(String beanName) {
-        return (T) testPostService;
+        return (T) switch(beanName){
+            case("testPostService") -> testPostService;
+            case("testPostRepository") -> testPostRepository;
+            default -> null;
+        };
     }
 }
