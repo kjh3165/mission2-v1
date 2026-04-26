@@ -4,8 +4,8 @@ import com.ll.domain.testPost.testPost.repository.TestPostRepository;
 import com.ll.domain.testPost.testPost.service.TestPostService;
 
 public class ApplicationContext {
-    public TestPostRepository testPostRepository;
-    public TestPostService testPostService;
+    public static TestPostRepository testPostRepository;
+    public static TestPostService testPostService;
 
     public ApplicationContext() {
         testPostRepository = new TestPostRepository();
