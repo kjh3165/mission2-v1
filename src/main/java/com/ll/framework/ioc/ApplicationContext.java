@@ -5,14 +5,14 @@ import com.ll.domain.testPost.testPost.service.TestFacadePostService;
 import com.ll.domain.testPost.testPost.service.TestPostService;
 
 public class ApplicationContext {
-    public static TestPostRepository testPostRepository;
-    public static TestPostService testPostService;
-    public static TestFacadePostService testFacadePostService;
+    private static TestFacadePostService testFacadePostService;
+    private static TestPostRepository testPostRepository;
+    private static TestPostService testPostService;
 
     public ApplicationContext() {
-        testPostRepository = new TestPostRepository();
-        testPostService = new TestPostService();
         testFacadePostService = new TestFacadePostService();
+        testPostRepository = testFacadePostService.testPostRepository;
+        testPostService = testFacadePostService.testPostService;
     }
 
     public <T> T genBean(String beanName) {

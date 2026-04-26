@@ -6,6 +6,11 @@ import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 public class TestFacadePostService {
-    private final TestPostService testPostService = ApplicationContext.testPostService;
-    private final TestPostRepository testPostRepository = ApplicationContext.testPostRepository;
+    public final TestPostRepository testPostRepository;
+    public final TestPostService testPostService;
+
+    public TestFacadePostService(){
+        testPostRepository = new TestPostRepository();
+        testPostService = new TestPostService(testPostRepository);
+    }
 }
